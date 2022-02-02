@@ -5,11 +5,6 @@ export const children = {
   }),
 
   actions: {
-    clearState({ state }) {
-      state.person = [];
-      state.children = [];
-      console.log(state);
-    },
   },
 
   mutations: {
@@ -22,6 +17,10 @@ export const children = {
     },
     delChildren(state, index) {
       state.children.splice(index, 1);
+    },
+    clearState(state) {
+      state.person = [];
+      state.children = [];
     },
   },
 

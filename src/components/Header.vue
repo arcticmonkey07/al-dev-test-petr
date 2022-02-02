@@ -3,7 +3,7 @@
     <div class="header_container">
       <router-link to="/" class="logo"></router-link>
       <div class="nav">
-        <router-link to="/" class="nav_link" @click.prevent="clearState">Форма</router-link>
+        <router-link to="/" class="nav_link" @click.prevent="clearStateHandle">Форма</router-link>
         <router-link to="/preview" class="nav_link">Превью</router-link>
       </div>
     </div>
@@ -11,13 +11,15 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 
 export default {
   name: "Header",
   props: {},
   methods: {
-    clearState() {
-      this.$store.dispatch("clearState");
+    ...mapMutations(["clearState"]),
+    clearStateHandle() {
+      this.clearState();
     }
   }
 };
