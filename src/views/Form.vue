@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <form class="main_container" @submit.prevent="submit">
+    <form class="main_container" @submit.prevent="submit" ref="formRef">
       <div class="personal_block">
         <h2 class="personal_header">Персональные данные</h2>
         <input
@@ -84,7 +84,8 @@ export default {
         name: this.name,
         age: this.age,
       });
-      this.name = this.age = "";
+      this.$refs.formRef.reset();
+      setTimeout(() => this.$router.push('/preview'), 500);
     },
     addChildInput() {
       this.createChildren({
@@ -109,7 +110,6 @@ export default {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #111111;
 }
 
 .personal_input {
@@ -150,7 +150,6 @@ export default {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #111111;
 }
 
 .children_button {
@@ -196,7 +195,6 @@ export default {
   font-weight: normal;
   font-size: 14px;
   line-height: 24px;
-  color: #111111;
   background: #ffffff;
   border: 1px solid #f1f1f1;
   border-radius: 4px;

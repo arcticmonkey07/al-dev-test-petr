@@ -5,6 +5,11 @@ export const children = {
   }),
 
   actions: {
+    clearState({ state }) {
+      state.person = [];
+      state.children = [];
+      console.log(state);
+    },
   },
 
   mutations: {
